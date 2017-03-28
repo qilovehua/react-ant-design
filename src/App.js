@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './../public/image/logo.svg';
 import {Button} from 'antd';
 
 class App extends Component {
