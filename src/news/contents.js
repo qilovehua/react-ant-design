@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import NewsModel from '../model/news';
 import Content from './content';
+import {Spin} from 'antd';
 
 var pagesize = 10;
 
@@ -11,7 +12,6 @@ class Contents extends Component {
     constructor(props) {
         super(props);
         this.page = 1;
-        this.loading = false;
         this.state = {
             contents: [],
             loading: false,
@@ -32,10 +32,12 @@ class Contents extends Component {
     }
 
     getNews(tableNum, init=true, scroll=false){
-        if(this.loading){
+        if(this.state.loading){
             return;
         }
-        this.loading = true;
+        this.setState({
+            loading: true,
+        });
         NewsModel.getNewsList({pagesize, page: this.page, tableNum}).then((contents)=>{
             this.page += 1;
             this.loading = false;
@@ -44,9 +46,12 @@ class Contents extends Component {
             }
             this.setState({
                 contents: init ? contents : this.state.contents.concat(contents),
+                loading: false,
             });
         }).catch(()=>{
-            this.loading = false;
+            this.setState({
+                loading: false,
+            });
             console.log('===hehe error');
         });
     }
@@ -59,13 +64,19 @@ class Contents extends Component {
     }
 
     render() {
-        var {contents} = this.state;
+        var {contents, loading} = this.state;
         return (
             <div className="contents">
                 {
                     contents.map((content, index)=>{
                         return <Content key={index} content={content}/>
                     })
+                }
+                {
+                    loading &&
+                        <div style={{height: 30, textAlign: 'center'}}>
+                            <Spin/>
+                        </div>
                 }
             </div>
         );
