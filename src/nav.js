@@ -8,7 +8,7 @@ class Nav extends Component {
         return (
             <div>
                 <div>
-                    <Layout style={{position: 'fixed', width: '100%'}}>
+                    <Layout style={{position: 'fixed', width: '100%', zIndex: 100}}>
                         <Header className="header nav">
                             <div className="nav-logo">
                                 <img src={logo} className="App-logo" alt="logo" />

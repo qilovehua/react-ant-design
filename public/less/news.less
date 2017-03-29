@@ -9,4 +9,64 @@
 .contents{
     width: 50%;
     min-width: 500px;
+    margin-top: 50px;
+}
+
+.content {
+    margin: 10px;
+    clear: both;
+}
+
+.content-img{
+    width: 158px;
+    height: 102px;
+    overflow: hidden;
+}
+
+.content-img img{
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+}
+.content-img:hover img{
+    -webkit-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+.content-with-img{
+    float: left;
+    margin-left: 168px;
+    margin-top: -90px;
+}
+
+.content-title{
+    display: block;
+    font-size: 20px;
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.content-sub-title div:first-child{
+    display: inline-block;
+    font-size: 14px;
+    color: #777;
+}
+.content-sub-title div:last-child{
+    display: inline-block;
+    float: right;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0 3px;
+    -webkit-transition: width 0.2s, height 0.2s;
+    transition: width 0.2s, height 0.2s;
+}
+.content-sub-title div:last-child:hover{
+    background-color: #d73435;
+    border-radius: 3px;
+    color: white;
+}
+.content-sub-title div:last-child:hover:before{
+    content: ' 不感兴趣 ';
+}
+a:visited{
+    color: #999;
 }

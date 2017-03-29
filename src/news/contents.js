@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import NewsModel from '../model/news';
+import Content from './content';
 
 var pagesize = 10;
 
@@ -10,13 +11,15 @@ class Contents extends Component {
         super(props);
         this.page = 1;
         this.state = {
-            contents: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            contents: [],
         }
     }
 
     componentDidMount(){
-        NewsModel.getNewsList({pagesize, page: this.page, tableNum: this.props.index}).then((result)=>{
-            console.log('===hehe', result);
+        NewsModel.getNewsList({pagesize, page: this.page, tableNum: this.props.index}).then((contents)=>{
+            this.setState({
+                contents
+            });
         }).catch(()=>{
             console.log('===hehe error');
         });
@@ -28,7 +31,7 @@ class Contents extends Component {
             <div className="contents">
                 {
                     contents.map((content, index)=>{
-                        return <div key={index} style={{height: '100px'}}>{content}</div>
+                        return <Content key={index} content={content}/>
                     })
                 }
             </div>
