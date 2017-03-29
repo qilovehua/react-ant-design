@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import $ from 'jquery';
 import NewsModel from '../model/news';
 import Content from './content';
 
@@ -10,19 +11,51 @@ class Contents extends Component {
     constructor(props) {
         super(props);
         this.page = 1;
+        this.loading = false;
         this.state = {
             contents: [],
+            loading: false,
         }
     }
 
     componentDidMount(){
-        NewsModel.getNewsList({pagesize, page: this.page, tableNum: this.props.index}).then((contents)=>{
+        this.getNews(this.props.index);
+        $(window).on('scroll', ()=>{
+            this.onScroll();
+        })
+    }
+
+    componentWillReceiveProps(props){
+        if(props.index != this.props.index){
+            this.getNews(props.index, true, true);
+        }
+    }
+
+    getNews(tableNum, init=true, scroll=false){
+        if(this.loading){
+            return;
+        }
+        this.loading = true;
+        NewsModel.getNewsList({pagesize, page: this.page, tableNum}).then((contents)=>{
+            this.page += 1;
+            this.loading = false;
+            if(scroll){
+                $('body').animate({scrollTop: 0}, 20);
+            }
             this.setState({
-                contents
+                contents: init ? contents : this.state.contents.concat(contents),
             });
         }).catch(()=>{
+            this.loading = false;
             console.log('===hehe error');
         });
+    }
+
+    onScroll(){
+        if ($(document).scrollTop() >= $(document).height() - $(window).height() - 200) { // 距离底部200px时加载下一页
+            console.log("滚动条已经到达底部, load more");
+            this.getNews(this.props.index, false);
+        }
     }
 
     render() {
