@@ -11,6 +11,10 @@ class Content extends Component {
     componentDidMount(){
     }
 
+    unInterested(news_id){
+        this.props.unInterested && this.props.unInterested(news_id);
+    }
+
     render() {
         var {content} = this.props;
         var existImage = !!content.text_image0;
@@ -29,7 +33,7 @@ class Content extends Component {
                         </a>
                         <div className="content-sub-title">
                             <div>{'来源: ' + content.source + ' ⋅ ' + content.reply_count + '评论 ⋅ ' + content.edit_time}</div>
-                            <div><Icon type="close" style={{fontSize: 15}}/></div>
+                            <div onClick={()=>{this.unInterested(content.news_id)}}><Icon type="close" style={{fontSize: 15}}/></div>
                         </div>
                     </div>
                 </Card>

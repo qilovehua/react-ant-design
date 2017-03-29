@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import $ from 'jquery';
+import _ from 'lodash';
 import NewsModel from '../model/news';
 import Content from './content';
 import {Spin} from 'antd';
@@ -63,13 +64,25 @@ class Contents extends Component {
         }
     }
 
+    unInterested(news_id){
+        var {contents} = this.state;
+        var remove = _.remove(contents, (content)=>{
+            return content.news_id === news_id;
+        });
+        if(_.size(remove)){
+            this.setState({
+                contents,
+            });
+        }
+    }
+
     render() {
         var {contents, loading} = this.state;
         return (
             <div className="contents">
                 {
                     contents.map((content, index)=>{
-                        return <Content key={index} content={content}/>
+                        return <Content key={index} content={content} unInterested={(news_id)=>{this.unInterested(news_id)}}/>
                     })
                 }
                 {
