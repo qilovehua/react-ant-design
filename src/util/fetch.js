@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import _ from 'lodash';
+import $ from 'jquery';
 
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
@@ -54,9 +55,10 @@ function fetchAPI(url, method, params) {
         }
     }
     console.log(myRequest.url);
-    myRequest.mode = 'no-cors';
+    myRequest.mode = 'cors';
     myRequest.cache = 'default';
     myRequest.credentials = 'include'; //跨域需要携带cookie
+    myRequest.method = 'GET';
     return fetch(myRequest.url, myRequest)
         .then(checkStatus)
         .then(parseJSON)
@@ -66,13 +68,45 @@ function fetchAPI(url, method, params) {
         });
 };
 
+function jsonpAPI(url, params) {
+    return new Promise((resolve, reject)=>{
+        $.ajax({
+            url,
+            dataType: 'jsonp',
+            data: params,
+            jsonp: 'callback',
+            timeout: 5000,
+            success: function (result) {
+                console.log('===success', result);
+                resolve(result);
+            },
+            error: function (err) {
+                console.log('===fail', err);
+                reject(err);
+            }
+        })
+    });
+}
+
 // 当前只支持Post、Get
 function get(url, params) {
     return fetchAPI(url, 'GET', params);
 };
 
+// 如果服务器不支持CORS, 使用jsonp跨域
+function getByJsonp(url, params) {
+    return jsonpAPI(url, params)
+        .then(checkStatus)
+        .then((response)=>{
+            return response;
+        })
+        .catch((error)=>{
+            return checkError(url, error);
+        });
+}
+
 function post(url, params) {
     return fetchAPI(url, 'POST', params);
 };
 
-export default {get, post}
+export default {get, post, getByJsonp}
