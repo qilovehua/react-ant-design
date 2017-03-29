@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 
 import { Layout, Menu} from 'antd';
 const {Sider, Content} = Layout;
+import Contents from './contents';
 
 var menus = ['头条', '娱乐', '军事', '汽车', '财经', '笑话', '体育', '科技', ];
 
 class News extends Component {
 
-    seleteMenu(index){
+    constructor(props) {
+        super(props);
+        this.state = {
+            index: 0,
+        }
+    }
+
+    selectMenu(index){
         this.setState({
             index
         });
@@ -28,7 +36,7 @@ class News extends Component {
                                 menus.map((menu, index)=>{
                                     return (
                                         <Menu.Item key={index}>
-                                            <div style={{'text-align': 'center'}} onClick={()=>{this.seleteMenu(index)}}>
+                                            <div style={{'text-align': 'center'}} onClick={()=>{this.selectMenu(index)}}>
                                                 {menu}
                                             </div>
                                         </Menu.Item>
@@ -39,14 +47,7 @@ class News extends Component {
                     </Sider>
                     <Layout>
                         <Content style={{marginLeft: '150px'}}>
-                            <div style={{height: '100px'}}>eieiei</div>
-                            <div style={{height: '100px'}}>eieiei</div>
-                            <div style={{height: '100px'}}>eieiei</div>
-                            <div style={{height: '100px'}}>eieiei</div>
-                            <div style={{height: '100px'}}>eieiei</div>
-                            <div style={{height: '100px'}}>eieiei</div>
-                            <div style={{height: '100px'}}>eieiei</div>
-                            <div style={{height: '100px'}}>eieiei</div>
+                            <Contents index={this.state.index}/>
                         </Content>
                     </Layout>
                 </Layout>
