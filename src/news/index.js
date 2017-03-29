@@ -11,7 +11,7 @@ class News extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            index: 0,
+            index: 1,
         }
     }
 
@@ -35,8 +35,8 @@ class News extends Component {
                             {
                                 menus.map((menu, index)=>{
                                     return (
-                                        <Menu.Item key={index}>
-                                            <div style={{'text-align': 'center'}} onClick={()=>{this.selectMenu(index)}}>
+                                        <Menu.Item key={index + 1}>
+                                            <div style={{'textAlign': 'center'}} onClick={()=>{this.selectMenu(index + 1)}}>
                                                 {menu}
                                             </div>
                                         </Menu.Item>

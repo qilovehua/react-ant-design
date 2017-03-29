@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './../public/image/logo.svg';
 import { Layout, Menu} from 'antd';
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Header } = Layout;
 
 class Nav extends Component {
     render() {
