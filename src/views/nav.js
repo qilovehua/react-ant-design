@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './../public/image/logo.svg';
+import logo from './../../public/image/logo.svg';
 import { Layout, Menu} from 'antd';
 const { Header } = Layout;
 

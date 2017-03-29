@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import $ from 'jquery';
 import _ from 'lodash';
-import NewsModel from '../model/news';
+import NewsModel from '../../model/news';
 import Content from './content';
 import {Spin} from 'antd';
 

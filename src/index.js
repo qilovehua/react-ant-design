@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
-import Nav from './nav'
-import News from './news/index';
+import Nav from './views/nav'
+import News from './views/news/index';
 import '../public/main.css';
 
 ReactDOM.render(
