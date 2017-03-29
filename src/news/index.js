@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Layout, Menu} from 'antd';
+import {Layout, Menu} from 'antd';
 const {Sider, Content} = Layout;
 import Contents from './contents';
 
@@ -24,8 +24,8 @@ class News extends Component {
     render() {
         return (
             <div className="news">
-                <Layout style={{ padding: '24px 0', background: '#fff' }}>
-                    <Sider width={120} className="news-menu">
+                <Layout>
+                    <Sider width={130} className="news-menu">
                         <Menu
                             mode="inline"
                             theme="dark"
@@ -36,7 +36,7 @@ class News extends Component {
                                 menus.map((menu, index)=>{
                                     return (
                                         <Menu.Item key={index + 1}>
-                                            <div style={{'textAlign': 'center'}} onClick={()=>{this.selectMenu(index + 1)}}>
+                                            <div className="news-menu-item" onClick={()=>{this.selectMenu(index + 1)}}>
                                                 {menu}
                                             </div>
                                         </Menu.Item>
