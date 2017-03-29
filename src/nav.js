@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './../public/image/logo.svg';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu} from 'antd';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
@@ -9,7 +9,7 @@ class Nav extends Component {
         return (
             <div>
                 <div>
-                    <Layout>
+                    <Layout style={{position: 'fixed', width: '100%'}}>
                         <Header className="header nav">
                             <div className="nav-logo">
                                 <img src={logo} className="App-logo" alt="logo" />
@@ -18,7 +18,7 @@ class Nav extends Component {
                                 <Menu
                                     theme="dark"
                                     mode="horizontal"
-                                    defaultSelectedKeys={['2']}
+                                    defaultSelectedKeys={['1']}
                                     style={{ lineHeight: '64px' }}
                                 >
                                     <Menu.Item key="1">首页</Menu.Item>
