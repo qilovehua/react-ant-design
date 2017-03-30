@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import _ from 'lodash';
 import { Card, Icon } from 'antd';
+import TimeFormat from '../../util/timeFormat';
 
 class Content extends Component {
 
@@ -55,6 +56,10 @@ class Content extends Component {
         var {content} = this.props;
         var {show, showOpt} = this.state;
         var existImage = !!content.text_image0;
+        var createTime = '';
+        if(content.edit_time && content.edit_time !== '0'){
+            createTime += ' ⋅ ' + TimeFormat.format(content.edit_time * 1000);
+        }
         return (
             <div className="content">
                 <Card>
@@ -85,8 +90,8 @@ class Content extends Component {
                                     {' 关闭详情'}
                                 </div>
                         }
-                        <div className="content-sub-title">
-                            <div>{'来源: ' + content.source + ' ⋅ ' + content.reply_count + '评论' + (content.edit_time && content.edit_time !== '0' ? ' ⋅ ' + content.edit_time : '')}</div>
+                        <div className="content-sub-title" onClick={()=>{console.log(content)}}>
+                            <div>{'来源: ' + content.source + ' ⋅ ' + content.reply_count + '评论' + createTime}</div>
                             <div onClick={()=>{this.unInterested(content.news_id)}}><Icon type="close" style={{fontSize: 15}}/></div>
                         </div>
                     </div>
