@@ -27,7 +27,7 @@ class Contents extends Component {
     }
 
     componentWillReceiveProps(props){
-        if(props.index != this.props.index){
+        if(props.index !== this.props.index){
             this.getNews(props.index, true, true);
         }
     }
