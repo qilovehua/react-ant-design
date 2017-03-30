@@ -27,7 +27,7 @@ class Content extends Component {
                                 <img src={content.text_image0} width={158} height={102}/>
                             </div>
                     }
-                    <div className={'content-with-img'}>
+                    <div className={existImage ? 'content-with-img' : ''}>
                         <a className="content-title" href="javascript:void(0)">
                             {content.title}
                         </a>
