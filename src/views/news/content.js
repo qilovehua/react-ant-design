@@ -61,7 +61,7 @@ class Content extends Component {
                     {
                         existImage &&
                             <div className="content-img">
-                                <img src={content.text_image0} width={158} height={102}/>
+                                <img src={content.text_image0} width={158} height={102} alt="加载失败"/>
                             </div>
                     }
                     <div className={existImage ? 'content-with-img' : ''}>
@@ -86,7 +86,7 @@ class Content extends Component {
                                 </div>
                         }
                         <div className="content-sub-title">
-                            <div>{'来源: ' + content.source + ' ⋅ ' + content.reply_count + '评论 ⋅ ' + content.edit_time}</div>
+                            <div>{'来源: ' + content.source + ' ⋅ ' + content.reply_count + '评论' + (content.edit_time && content.edit_time !== '0' ? ' ⋅ ' + content.edit_time : '')}</div>
                             <div onClick={()=>{this.unInterested(content.news_id)}}><Icon type="close" style={{fontSize: 15}}/></div>
                         </div>
                     </div>
