@@ -74,6 +74,9 @@
 a:visited {
   color: #999;
 }
+a:hover {
+  color: #108ee9;
+}
 .content-opt {
   font-size: 14px;
   font-weight: bold;
@@ -82,9 +85,6 @@ a:visited {
 }
 .nav-menu .ant-menu .ant-menu-item {
   top: -2px;
-}
-.nav-menu .ant-menu .ant-menu-item a:hover {
-  color: #108ee9;
 }
 .nav-menu .ant-menu .ant-menu-item-selected {
   border-bottom: solid 2px #108ee9;
@@ -97,5 +97,4 @@ a:visited {
   width: 60%;
   min-width: 500px;
   margin: 10px auto;
-  background-color: #108ee9;
 }

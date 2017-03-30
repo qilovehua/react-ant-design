@@ -86,9 +86,11 @@
         }
     }
 }
-
 a:visited{
     color: #999;
+}
+a:hover{
+    color: @blue;
 }
 
 .content-opt{
@@ -100,9 +102,6 @@ a:visited{
 .nav-menu .ant-menu{
     & .ant-menu-item {
         top: -2px;
-        a:hover{
-            color: @blue;
-        }
     }
     & .ant-menu-item-selected{
         border-bottom: solid 2px #108ee9;
@@ -117,5 +116,4 @@ a:visited{
     width: 60%;
     min-width: 500px;
     margin: 10px auto;
-    background-color: @blue;
 }
