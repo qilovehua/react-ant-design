@@ -1,18 +1,24 @@
 @blue: #108ee9;
 .news {
-}
-
-.news .news-menu{
-    position: fixed;
-    margin-top: 26px;
-}
-
-.news-menu-item{
-    text-align: center;
-}
-
-.news-menu-item:hover{
-    color: #108ee9;
+    .news-menu{
+        position: fixed;
+        margin-top: 26px;
+        .ant-menu-item {
+            .news-menu-item{
+                text-align: center;
+                &:hover {
+                    color: @blue;
+                }
+            }
+        }
+        .ant-menu-item-selected {
+            .news-menu-item{
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
 }
 
 .contents{
@@ -30,15 +36,14 @@
     width: 158px;
     height: 102px;
     overflow: hidden;
-}
-
-.content-img img{
-    -webkit-transition: -webkit-transform 0.5s;
-    transition: transform 0.5s;
-}
-.content-img:hover img{
-    -webkit-transform: scale(1.2, 1.2);
-    transform: scale(1.2, 1.2);
+    img{
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+    }
+    &:hover img {
+        -webkit-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+    }
 }
 
 .content-with-img{
@@ -58,29 +63,30 @@
 
 .content-sub-title{
     margin: 5px 0 10px 0;
+    & div:first-child{
+        display: inline-block;
+        font-size: 14px;
+        color: #777;
+    }
+    & div:last-child{
+        display: inline-block;
+        float: right;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 0 3px;
+        -webkit-transition: width 0.2s, height 0.2s;
+        transition: width 0.2s, height 0.2s;
+        &:hover{
+            background-color: #d73435;
+            border-radius: 3px;
+            color: white;
+            &:before{
+                content: ' 不感兴趣 ';
+            }
+        }
+    }
 }
-.content-sub-title div:first-child{
-    display: inline-block;
-    font-size: 14px;
-    color: #777;
-}
-.content-sub-title div:last-child{
-    display: inline-block;
-    float: right;
-    font-size: 12px;
-    cursor: pointer;
-    padding: 0 3px;
-    -webkit-transition: width 0.2s, height 0.2s;
-    transition: width 0.2s, height 0.2s;
-}
-.content-sub-title div:last-child:hover{
-    background-color: #d73435;
-    border-radius: 3px;
-    color: white;
-}
-.content-sub-title div:last-child:hover:before{
-    content: ' 不感兴趣 ';
-}
+
 a:visited{
     color: #999;
 }
@@ -89,16 +95,21 @@ a:visited{
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    color: #108ee9;
+    color: @blue;
 }
-.nav-menu .ant-menu .ant-menu-item{
-    top: -2px;
-}
-.nav-menu .ant-menu .ant-menu-item-selected{
-    border-bottom: solid 2px #108ee9;
-}
-.nav-menu .ant-menu .ant-menu-item-selected a{
-    color: #108ee9;
+.nav-menu .ant-menu{
+    & .ant-menu-item {
+        top: -2px;
+        a:hover{
+            color: @blue;
+        }
+    }
+    & .ant-menu-item-selected{
+        border-bottom: solid 2px #108ee9;
+        a{
+            color: @blue;
+        }
+    }
 }
 
 .thanks,
@@ -106,4 +117,5 @@ a:visited{
     width: 60%;
     min-width: 500px;
     margin: 10px auto;
+    background-color: @blue;
 }

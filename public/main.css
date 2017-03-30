@@ -1,5 +1,5 @@
 @import "~antd/dist/antd.css";
-@import "less/news.less";
+@import "less/news.css";
 .App {
     text-align: center;
 }
