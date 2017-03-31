@@ -4,6 +4,7 @@ import $ from 'jquery';
 import _ from 'lodash';
 import { Card, Icon } from 'antd';
 import TimeFormat from '../../util/timeFormat';
+import Comment from './comment/index';
 
 class Content extends Component {
 
@@ -12,6 +13,7 @@ class Content extends Component {
         this.state = {
             show: false,
             showOpt: true,
+            showComment: false,
         }
     }
 
@@ -27,6 +29,7 @@ class Content extends Component {
     componentWillReceiveProps(props){
         if(!_.isEqual(props.content, this.props.content)){
             this.setState({
+                showComment: false,
                 show: false,
                 showOpt: props.content && props.content.content,
             });
@@ -52,9 +55,16 @@ class Content extends Component {
         });
     }
 
+    showComment(e){
+        e.stopPropagation();
+        this.setState({
+            showComment: !this.state.showComment,
+        });
+    }
+
     render() {
         var {content} = this.props;
-        var {show, showOpt} = this.state;
+        var {show, showOpt, showComment} = this.state;
         var existImage = !!content.text_image0;
         var createTime = '';
         if(content.edit_time && content.edit_time !== '0'){
@@ -91,11 +101,15 @@ class Content extends Component {
                                 </div>
                         }
                         <div className="content-sub-title" onClick={()=>{console.log(content)}}>
-                            <div>{'来源: ' + content.source + ' ⋅ ' + content.reply_count + '评论' + createTime}</div>
+                            <div>{'来源: ' + content.source + ' ⋅ '}<a href="javascript:void(0)" onClick={(e)=>{this.showComment(e)}}>{content.reply_count + '评论'}</a>{createTime}</div>
                             <div onClick={()=>{this.unInterested(content.news_id)}}><Icon type="close" style={{fontSize: 15}}/></div>
                         </div>
                     </div>
                 </Card>
+                {
+                    showComment &&
+                        <Comment/>
+                }
             </div>
         );
     }

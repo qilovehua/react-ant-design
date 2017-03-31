@@ -5,7 +5,7 @@ class timeFormat {
         var tempDate = new Date(date);
 
         // 生成时间
-        moment.lang('zh-cn');
+        moment.locale('zh-cn');
         return moment(tempDate).calendar(null, {
             sameDay: '今天 HH:mm:ss',
             nextDay: '明天',
