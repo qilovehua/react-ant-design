@@ -3,7 +3,7 @@ import _ from 'lodash';
 import $ from 'jquery';
 
 function checkStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
+    if ((response.status >= 200 && response.status < 300) || response.status === 'success') {
         return response
     } else {
         var error = new Error(response.statusText);
@@ -67,7 +67,6 @@ function fetchAPI(url, method, params) {
             return checkError(url, error);
         });
 };
-
 function jsonpAPI(url, params) {
     return new Promise((resolve, reject)=>{
         $.ajax({
@@ -94,7 +93,7 @@ function get(url, params) {
 };
 
 // 如果服务器不支持CORS, 使用jsonp跨域
-function getByJsonp(url, params) {
+function getByJsonp(url, params={}) {
     return jsonpAPI(url, params)
         .then(checkStatus)
         .then((response)=>{
