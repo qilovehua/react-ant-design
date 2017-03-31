@@ -92,7 +92,7 @@ class Content extends Component {
                         }
                         {
                             show && showOpt &&
-                                <div className={"content-detail" + content.news_id}/>
+                                <div className={"content-detail content-detail" + content.news_id}/>
                         }
                         {
                             show && showOpt &&

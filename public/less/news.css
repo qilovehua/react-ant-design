@@ -377,3 +377,9 @@ a:hover {
   background-color: #108ee9;
   color: #fff;
 }
+.content-detail {
+  color: #222222;
+  font-size: 16px;
+  line-height: 28px;
+  word-wrap: break-word;
+}
