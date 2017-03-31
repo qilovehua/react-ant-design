@@ -373,3 +373,7 @@ a:hover {
   width: 100%;
   position: relative;
 }
+.ant-back-top-content:hover {
+  background-color: #108ee9;
+  color: #fff;
+}

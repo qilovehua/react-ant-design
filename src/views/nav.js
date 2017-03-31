@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import logo from './../../public/image/logo.svg';
-import { Layout, Menu} from 'antd';
-const { Header } = Layout;
+import {Layout, Menu, BackTop} from 'antd';
+const {Header} = Layout;
 
 class Nav extends Component {
 
@@ -50,6 +50,7 @@ class Nav extends Component {
                 <div style={{marginTop: 64}}>
                     {this.props.children}
                 </div>
+                <BackTop />
             </div>
         );
     }
