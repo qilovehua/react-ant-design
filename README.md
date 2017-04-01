@@ -1,4 +1,4 @@
-[image](https://github.com/qilovehua/react-ant-design/tree/master/public/image/antd.png)
+![image](https://github.com/qilovehua/react-ant-design/tree/master/public/image/antd.png)
  
 # 要点
 1. 仿今日头条的新闻网站
