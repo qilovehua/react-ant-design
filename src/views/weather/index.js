@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import _ from 'lodash';
-import {Card, Collapse} from 'antd';
+import {Card, Collapse, notification} from 'antd';
 const Panel = Collapse.Panel;
 import WeatherModel from '../../model/weather';
 
@@ -12,6 +12,7 @@ class Weather extends Component {
         this.page = 1;
         this.state = {
             infos: {},
+            isError: false,
         }
     }
 
@@ -22,7 +23,14 @@ class Weather extends Component {
                 infos,
             });
         }).catch(()=>{
-
+            this.setState({
+                isError: true,
+            });
+            notification.error({
+                message: '天气加载失败',
+                description: '网络问题或者接口失效了',
+                duration: 2,
+            });
         });
     }
 
@@ -45,32 +53,40 @@ class Weather extends Component {
     }
 
     render(){
-        var {infos} = this.state;
-        if(!_.size(infos)){
-            return <div>loading...</div>
-        }
+        var {infos, isError} = this.state;
         this.getPM25(parseInt(infos.pm25 || 0));
+        var showDetail = !isError && _.size(infos);
         return (
             <div className="weather">
                 <Card title={(infos.currentCity || '') + "天气"} className="weather-container" extra={<a href="#">更多详情</a>}>
-                    <p>{infos.weather_data[0].date}</p>
-                    <p>实时空气质量: {infos.pm25 + ' (' + this.getPM25(infos.pm25) + ')'}</p>
-                    <p>{infos.weather_data[0].weather}</p>
-                    <p>{infos.weather_data[0].wind}</p>
-                    <p>{infos.weather_data[0].temperature}</p>
+                    {isError && <div>天气加载失败</div>}
+                    {!_.size(infos) && !isError && <div>loading...</div>}
+                    {
+                        showDetail &&
+                            <div>
+                                <p>{infos.weather_data[0].date}</p>
+                                <p>实时空气质量: {infos.pm25 + ' (' + this.getPM25(infos.pm25) + ')'}</p>
+                                <p>{infos.weather_data[0].weather}</p>
+                                <p>{infos.weather_data[0].wind}</p>
+                                <p>{infos.weather_data[0].temperature}</p>
+                            </div>
+                    }
                 </Card>
                 <br/>
-                <Collapse>
-                    {
-                        _.map(infos.index||[], (info, index)=>{
-                            return (
-                                <Panel header={info.title + ' - ' + info.zs} key={index}>
-                                    <p>{info.tipt + ': ' + info.des}</p>
-                                </Panel>
-                            )
-                        })
-                    }
-                </Collapse>
+                {
+                    showDetail &&
+                        <Collapse>
+                            {
+                                _.map(infos.index||[], (info, index)=>{
+                                    return (
+                                        <Panel header={info.title + ' - ' + info.zs} key={index}>
+                                            <p>{info.tipt + ': ' + info.des}</p>
+                                        </Panel>
+                                    )
+                                })
+                            }
+                        </Collapse>
+                }
             </div>
         );
     }

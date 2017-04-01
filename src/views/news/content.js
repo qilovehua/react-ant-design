@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import $ from 'jquery';
 import _ from 'lodash';
-import { Card, Icon } from 'antd';
+import { Card, Icon, Tooltip } from 'antd';
 import TimeFormat from '../../util/timeFormat';
 import Comment from './comment/index';
 
@@ -101,7 +101,7 @@ class Content extends Component {
                                 </div>
                         }
                         <div className="content-sub-title" onClick={()=>{console.log(content)}}>
-                            <div>{'来源: ' + content.source + ' ⋅ '}<a href="javascript:void(0)" onClick={(e)=>{this.showComment(e)}}>{content.reply_count + '评论'}</a>{createTime}</div>
+                            <div>{'来源: ' + content.source + ' ⋅ '}<Tooltip overlay="点击展开评论"><a href="javascript:void(0)" onClick={(e)=>{this.showComment(e)}}>{content.reply_count + '评论'}</a></Tooltip>{createTime}</div>
                             <div onClick={()=>{this.unInterested(content.news_id)}}><Icon type="close" style={{fontSize: 15}}/></div>
                         </div>
                     </div>
