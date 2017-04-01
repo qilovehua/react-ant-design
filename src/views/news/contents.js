@@ -32,6 +32,10 @@ class Contents extends Component {
         }
     }
 
+    componentWillUnmount(){
+        $(window).off('scroll');
+    }
+
     getNews(tableNum, init=true, scroll=false){
         if(this.state.loading){
             return;
