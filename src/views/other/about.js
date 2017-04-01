@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 
 class About extends Component {
 
@@ -6,6 +7,10 @@ class About extends Component {
         super(props);
         this.state = {
         }
+    }
+
+    componentDidMount(){
+        $('body').animate({scrollTop: 0}, 10);
     }
 
     render() {

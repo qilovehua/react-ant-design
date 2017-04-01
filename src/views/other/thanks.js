@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-
+import $ from 'jquery';
 class Thanks extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
         }
+    }
+
+    componentDidMount(){
+        $('body').animate({scrollTop: 0}, 10);
     }
 
     render() {
