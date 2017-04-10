@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import _ from 'lodash';
+import {Link} from 'react-router';
 import {Card, Collapse, notification} from 'antd';
 const Panel = Collapse.Panel;
 import WeatherModel from '../../model/weather';
@@ -58,7 +59,7 @@ class Weather extends Component {
         var showDetail = !isError && _.size(infos);
         return (
             <div className="weather">
-                <Card title={(infos.currentCity || '') + "天气"} className="weather-container" extra={<a href="#">更多详情</a>}>
+                <Card title={(infos.currentCity || '') + "天气"} className="weather-container" extra={<Link to="/weather" state={{detail: infos.weather_data}}>更多详情</Link>}>
                     {isError && <div>天气加载失败</div>}
                     {!_.size(infos) && !isError && <div>loading...</div>}
                     {

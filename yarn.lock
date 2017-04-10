@@ -1738,6 +1738,12 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
+echarts@^3.5.2:
+  version "3.5.2"
+  resolved "http://registry.npm.taobao.org/echarts/download/echarts-3.5.2.tgz#c5baf0157c257394b22d3e89937eb368a27bf6ac"
+  dependencies:
+    zrender "^3.4.2"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -5813,3 +5819,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+zrender@^3.4.2:
+  version "3.4.2"
+  resolved "http://registry.npm.taobao.org/zrender/download/zrender-3.4.2.tgz#7286ef00e640d9686b63892eb2087bcffd1b7ea1"
