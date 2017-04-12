@@ -1,10 +1,10 @@
-@blue: #108ee9;
-@brown: #fffaf5;
-@black1: #4a4a4a; //主内容文字
-@black2: #929292; // 副内容文字
-@white: #fff;
+$blue: #108ee9;
+$brown: #fffaf5;
+$black1: #4a4a4a; //主内容文字
+$black2: #929292; // 副内容文字
+$white: #fff;
 
-.clearfix() {
+.clearfix {
     zoom: 1;
     &:after {
         content: " ";
@@ -14,13 +14,6 @@
         visibility: hidden;
     }
 }
-.translate(@transformX, @transformY) {
-    -moz-transform: translate(@transformX, @transformY);
-    -webkit-transform: translate(@transformX, @transformY);
-    -o-transform: translate(@transformX, @transformY);
-    -ms-transform: translate(@transformX, @transformY);
-    transform: translate(@transformX, @transformY);
-}
 .news {
     .news-menu{
         position: fixed;
@@ -29,7 +22,7 @@
             .news-menu-item{
                 text-align: center;
                 &:hover {
-                    color: @blue;
+                    color: $blue;
                 }
             }
         }
@@ -44,7 +37,7 @@
 }
 
 .content-container {
-    .clearfix();
+    @extend .clearfix;
     .contents {
         width: 50%;
         min-width: 660px;
@@ -66,14 +59,14 @@
 
 .content {
     margin: 10px;
-    .clearfix();
+    @extend .clearfix;
     .comment-container {
         padding: 10px 12px 0;
         position: relative;
         border-radius: 4px;
-        background-color: @brown;
+        background-color: $brown;
         .comment-list{
-            .clearfix();
+            @extend .clearfix;
             .comment-cell {
                 .cell-container {
                     margin-bottom: 5px;
@@ -85,11 +78,11 @@
                     .comment-content {
                         span {
                             line-height: 15px;
-                            color: @blue;
+                            color: $blue;
                             font-size: 12px;
                         }
                         span:last-child {
-                            color: @black1;
+                            color: $black1;
                         }
                         .cell:first-child span:last-child {
                             margin-left: 10px;
@@ -112,7 +105,7 @@
                                 }
                             }
                             .time-format {
-                                color: @black2;
+                                color: $black2;
                                 margin-left: 10px;
                             }
                         }
@@ -138,7 +131,7 @@
                     margin-left: 32px;
                     margin-top: 10px;
                     padding-left: 10px;
-                    border-left: solid 1px @black2;
+                    border-left: solid 1px $black2;
                 }
                 .commend-send-cell {
                     margin: 5px 0 10px 42px;
@@ -156,7 +149,7 @@
                         vertical-align: middle;
                     }
                     span{
-                        color: @blue;
+                        color: $blue;
                         font-size: 14px;
                     }
                 }
@@ -164,7 +157,7 @@
         }
         .comment-send{
             padding: 2px 0;
-            .clearfix();
+            @extend .clearfix;
             .comment-send-avatar {
                 width: 40px;
                 height: 40px;
@@ -173,10 +166,10 @@
             .comment-input-container{
                 margin-left: 49px;
                 .comment-input {
-                    border: inset 1px @black2;
+                    border: inset 1px $black2;
                     min-height: 32px;
                     position: relative;
-                    background-color: @white;
+                    background-color: $white;
                     &>div:first-child{
                         margin: 5px 65px 2px 10px;
                         textarea {
@@ -216,7 +209,7 @@
                 }
                 span {
                     font-size: 12px;
-                    color: @black2;
+                    color: $black2;
                 }
             }
         }
@@ -244,7 +237,7 @@
             margin-bottom: 5px;
             span {
                 font-size: 14px;
-                color: @blue;
+                color: $blue;
             }
             span:last-child{
                 float: right;
@@ -258,11 +251,9 @@
     height: 102px;
     overflow: hidden;
     img{
-        -webkit-transition: -webkit-transform 0.5s;
         transition: transform 0.5s;
     }
     &:hover img {
-        -webkit-transform: scale(1.2, 1.2);
         transform: scale(1.2, 1.2);
     }
 }
@@ -291,7 +282,7 @@
         a{
             color: #777;
             &:hover{
-                color: @blue;
+                color: $blue;
             }
         }
     }
@@ -301,7 +292,6 @@
         font-size: 12px;
         cursor: pointer;
         padding: 0 3px;
-        -webkit-transition: width 0.2s, height 0.2s;
         transition: width 0.2s, height 0.2s;
         &:hover{
             background-color: #d73435;
@@ -317,14 +307,14 @@ a:visited{
     color: #999;
 }
 a:hover{
-    color: @blue;
+    color: $blue;
 }
 
 .content-opt{
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    color: @blue;
+    color: $blue;
 }
 .nav-menu .ant-menu{
     & .ant-menu-item {
@@ -333,7 +323,7 @@ a:hover{
     & .ant-menu-item-selected{
         border-bottom: solid 2px #108ee9;
         a{
-            color: @blue;
+            color: $blue;
         }
     }
 }
@@ -391,7 +381,7 @@ a:hover{
             text-align: center;
             span {
                 font-size: 36px;
-                color: @white;
+                color: $white;
             }
         }
     }
@@ -404,7 +394,7 @@ a:hover{
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                .translate(-50%, -50%);
+                transform: translate(-50%, -50%);
             }
         }
     }
@@ -415,7 +405,7 @@ a:hover{
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                .translate(-50%, -50%);
+                transform: translate(-50%, -50%);
                 &.resize {
                     height: 100%;
                     width: auto;
@@ -434,7 +424,7 @@ a:hover{
 }
 
 .ant-back-top-content:hover {
-    background-color: @blue;
+    background-color: $blue;
     color: #fff;
 }
 

@@ -1,14 +1,13 @@
-@bgColor: #f4f5f6;
+$bgColor: #f4f5f6;
 
 .weather-container{
-    background-color: @bgColor;
+    background-color: $bgColor;
 }
 
 .weather-wrap {
     position: absolute;
     margin-top: 20px;
     left: 50%;
-    -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     #weather-detail {
         width: 800px;

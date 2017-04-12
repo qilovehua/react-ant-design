@@ -22,7 +22,7 @@ class About extends Component {
                     <li>React-Router</li>
                     <li>ant-design</li>
                     <li>Jquery</li>
-                    <li>Less - 未使用webpack打包，使用WebStorm自动编译生成CSS文件</li>
+                    <li>Less/SCSS</li>
                     <li>CSS(3)</li>
                     <li>HTML(5)</li>
                     <li>Fetch, JSONP 跨域访问API获取数据</li>
@@ -34,7 +34,7 @@ class About extends Component {
                 </h3>
                 <br/>
                 <br/>
-                <h3>备注: </h3>
+                <h3>备注: 使用WebStorm自动编译生成CSS文件的方法</h3>
                 <p>1. 需要使用lessc，如未安装请使用'npm install -g less'</p>
                 <p>2. <a href="http://www.cnblogs.com/fxair/p/3919674.html" target="_black">用webstorm自动编译less产出css和sourcemap</a></p>
             </div>
