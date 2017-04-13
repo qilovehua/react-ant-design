@@ -24,6 +24,10 @@ class SendComment extends Component {
         this.inputFocus(props);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state);
+    }
+
     inputFocus(props){
         if(props.focus){
             var ref = this.refs.inputRef;
@@ -52,13 +56,14 @@ class SendComment extends Component {
         if(e.keyCode !== 13){
             this.resizeHeight(e);
         }else{ // Enter 发布评论
-            if(!e.target.value){
+            var value = e.target.value.trim();
+            if(!value){
                 return;
             }
             this.props.succPostComment && this.props.succPostComment(
                 {
                     comment_id: '40',
-                    content: e.target.value,
+                    content: value,
                     parent_objid: 'parent_comment_id',
                     praise_count: 0,
                     self_praise: false,
@@ -69,8 +74,10 @@ class SendComment extends Component {
                     valid: 1,
                 }
             );
-            var ref = this.refs.inputRef;
-            ref && (ref.value = '');
+            setTimeout(()=>{
+                var ref = this.refs.inputRef;
+                ref && (ref.value = '');
+            }, 10);
         }
     }
 
@@ -79,7 +86,7 @@ class SendComment extends Component {
         var {height} = this.state;
         console.log('render', this.props);
         var style = {
-            height,
+            height: height + 'px',
             'overflowY': this.scrollHeight > 68 ? 'scroll' : 'hidden',
         };
         return (
