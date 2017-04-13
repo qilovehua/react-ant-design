@@ -1,11 +1,15 @@
 .weather-container {
-  background-color: #f4f5f6; }
+  background-color: #f4f5f6;
+}
 
 .weather-wrap {
   position: absolute;
   margin-top: 20px;
   left: 50%;
-  transform: translate(-50%, 0); }
-  .weather-wrap #weather-detail {
-    width: 800px;
-    height: 500px; }
+  transform: translate(-50%, 0);
+}
+
+.weather-wrap #weather-detail {
+  width: 800px;
+  height: 500px;
+}
