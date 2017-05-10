@@ -46,12 +46,11 @@ class News extends Component {
                             }
                         </Menu>
                     </Sider>
+
                     <Layout>
-                        <Content style={{marginLeft: '150px'}}>
-                            <div className="content-container">
-                                <Contents index={this.state.index}/>
-                                <Weather/>
-                            </div>
+                        <Content className="content-container">
+                            <Contents index={this.state.index}/>
+                            <Weather/>
                         </Content>
                     </Layout>
                 </Layout>

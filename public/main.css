@@ -11,6 +11,14 @@
 
 .nav-logo {
   float: left;
+  height: 64px;
+}
+
+.nav-title {
+  float: left;
+  font-size: 32px;
+  line-height: 64px;
+  color: #108ee9;
 }
 
 .nav-menu {

@@ -32,6 +32,9 @@ class Nav extends Component {
                             <div className="nav-logo">
                                 <img src={logo} className="App-logo" alt="logo" />
                             </div>
+                            <div className="nav-title">
+                                新闻头条
+                            </div>
                             <div className="nav-menu">
                                 <Menu
                                     theme="dark"

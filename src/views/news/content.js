@@ -76,7 +76,7 @@ class Content extends Component {
                     {
                         existImage &&
                             <div className="content-img">
-                                <img src={content.text_image0} width={158} height={102} alt="加载失败"/>
+                                <img src={content.text_image0} alt="加载失败"/>
                             </div>
                     }
                     <div className={existImage ? 'content-with-img' : ''}>
