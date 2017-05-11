@@ -27,14 +27,14 @@ class Weather extends Component {
             this.setState({
                 isError: true,
             });
-            notification.config({
-                top: 120,
-            });
-            notification.error({
-                message: '天气加载失败',
-                description: '网络问题或者接口失效了',
-                duration: 2,
-            });
+            // notification.config({
+            //     top: 120,
+            // });
+            // notification.error({
+            //     message: '天气加载失败',
+            //     description: '网络问题或者接口失效了',
+            //     duration: 2,
+            // });
         });
     }
 
@@ -59,6 +59,9 @@ class Weather extends Component {
     render(){
         var {infos, isError} = this.state;
         this.getPM25(parseInt(infos.pm25 || 0));
+        if(isError){
+            return <div/>
+        }
         var showDetail = !isError && _.size(infos);
         return (
             <div className="weather">
