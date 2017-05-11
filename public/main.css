@@ -12,7 +12,7 @@
 
 .nav-logo {
   float: left;
-  height: 64px;
+  height: 4em;
 }
 
 .nav-title {
@@ -26,6 +26,11 @@
   float: right;
 }
 
+.nav-menu-mobile {
+  float: right;
+  display: none;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 64px;
@@ -37,5 +42,23 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 500px) {
+  .nav-logo {
+    height: 3em;
+  }
+  .nav-title {
+    font-size: 2em;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .nav-menu-mobile {
+    display: block;
+    margin-right: 1em;
+    color: #108ee9;
+    font-size: 2em;
   }
 }

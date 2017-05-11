@@ -374,7 +374,8 @@ a:hover {
 .about {
   width: 60%;
   min-width: 500px;
-  margin: 10px auto;
+  margin: 0 auto;
+  padding: 1em;
 }
 
 .bg-image {
@@ -525,6 +526,11 @@ a:hover {
   .ant-back-top {
     right: 50px;
     bottom: 25px;
+  }
+  .thanks,
+  .about {
+    width: 100%;
+    min-width: initial;
   }
 }
 
