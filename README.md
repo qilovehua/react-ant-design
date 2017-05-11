@@ -1,7 +1,8 @@
 ![image](https://github.com/qilovehua/react-ant-design/raw/master/public/image/antd.png)
- 
+![image](https://github.com/qilovehua/react-ant-design/raw/master/public/image/antd2.png)
+  
 # 要点
-1. 仿今日头条的新闻网站
+1. 仿今日头条的新闻网站，支持响应式布局
 1. 查看详情，评论
 
 # 安装
@@ -14,7 +15,7 @@
 1. React-Router
 1. ant-design
 1. Jquery
-1. Less/SCSS
+1. Less/SCSS/PostCSS
 1. CSS(3)
 1. HTML(5)
 1. Fetch, JSONP 跨域访问API获取数据
