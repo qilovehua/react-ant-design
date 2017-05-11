@@ -27,6 +27,9 @@ class Weather extends Component {
             this.setState({
                 isError: true,
             });
+            notification.config({
+                top: 120,
+            });
             notification.error({
                 message: '天气加载失败',
                 description: '网络问题或者接口失效了',
