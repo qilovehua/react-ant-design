@@ -46,6 +46,26 @@ class News extends Component {
                             }
                         </Menu>
                     </Sider>
+                    <div className="news-menu-mobile">
+                        <Menu
+                            mode="horizontal"
+                            theme="dark"
+                            defaultSelectedKeys={['1']}
+                            style={{ height: '100%' }}
+                        >
+                            {
+                                menus.map((menu, index)=>{
+                                    return (
+                                        <Menu.Item key={index + 1}>
+                                            <div className="news-menu-item" onClick={()=>{this.selectMenu(index + 1)}}>
+                                                {menu}
+                                            </div>
+                                        </Menu.Item>
+                                    )
+                                })
+                            }
+                        </Menu>
+                    </div>
 
                     <Layout>
                         <Content className="content-container">

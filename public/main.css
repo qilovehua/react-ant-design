@@ -7,6 +7,7 @@
 
 .nav {
   clear: both;
+  overflow: hidden;
 }
 
 .nav-logo {
